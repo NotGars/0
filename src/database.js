@@ -13,12 +13,12 @@ export function initDatabase() {
     CREATE TABLE IF NOT EXISTS users (
       id TEXT NOT NULL,
       guild_id TEXT NOT NULL,
-      PRIMARY KEY(id, guild_id),
       xp INTEGER DEFAULT 0,
       voice_minutes INTEGER DEFAULT 0,
       music_minutes INTEGER DEFAULT 0,
       rankcard_style INTEGER DEFAULT 0,
-      created_at INTEGER DEFAULT (strftime('%s','now'))
+      created_at INTEGER DEFAULT (strftime('%s','now')),
+      PRIMARY KEY(id, guild_id)
     );
     CREATE TABLE IF NOT EXISTS temp_voice_channels (
       channel_id TEXT PRIMARY KEY,
