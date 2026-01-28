@@ -5,8 +5,8 @@ RUN apt-get update && apt-get install -y ffmpeg python3 ca-certificates && rm -r
 WORKDIR /app
 
 COPY package*.json ./
-# npm install (no requiere package-lock.json; npm ci sí)
-RUN npm install --omit=dev
+# --legacy-peer-deps: @distube/spotify@2 pide distube@5 pero usamos distube@4
+RUN npm install --omit=dev --legacy-peer-deps
 
 COPY . .
 RUN mkdir -p data
