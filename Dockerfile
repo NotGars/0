@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y ffmpeg python3 ca-certificates && rm -r
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci --omit=dev
+# npm install (no requiere package-lock.json; npm ci sí)
+RUN npm install --omit=dev
 
 COPY . .
 RUN mkdir -p data
